@@ -54,11 +54,11 @@ const Card = () => {
   const getUserAge = (values: IFormValues) => {
     let currentMonth = new Date().getMonth() + 1;
     let currentDay = new Date().getDate();
-    let userYear = parseInt(values?.year ?? '0', 10);
+    const userYear = parseInt(values?.year ?? '0', 10);
     console.log(userYear);
-    let userMonth = parseInt(values?.month ?? '0', 10);
-    let userDay = parseInt(values?.day ?? '0', 10);
-    let monthOfYear = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const userMonth = parseInt(values?.month ?? '0', 10);
+    const userDay = parseInt(values?.day ?? '0', 10);
+    const monthOfYear = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
     if (userDay > currentDay) {
       currentDay = currentDay + monthOfYear[currentMonth - 1];
