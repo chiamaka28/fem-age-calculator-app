@@ -7,12 +7,28 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+    container: {
+      center: true,
+      padding: "1.5rem",
+      screens: {
+        sm: "640px",
       },
     },
+
+    colors: {
+      purple: "hsl(259, 100%, 65%)",
+      lightRed: "hsl(0, 100%, 67%)",
+      offWhite:" hsl(0, 0%, 100%)",
+      lightGrey: "hsl(0, 0%, 86%)",
+      smokeyGrey: "hsl(0, 1%, 44%)",
+      offBlack:"hsl(0, 0%, 8%)",
+      white: "hsl(0, 0%, 100%)",
+
+    },
+    fontFamily:  {
+      sans: ['var(--font-poppins)']
+    },
+    extend: {},
   },
   plugins: [],
 };
