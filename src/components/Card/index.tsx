@@ -69,13 +69,13 @@ const Card = () => {
       currentYear = currentYear - 1;
     }
 
-    let ageInYears: number = currentYear - userYear;
+    const ageInYears: number = currentYear - userYear;
     setAgeYears(ageInYears);
 
-    let ageInMonths: number = currentMonth - userMonth;
+    const ageInMonths: number = currentMonth - userMonth;
     setAgeMonths(ageInMonths);
 
-    let ageInDays = currentDay - userDay;
+    const ageInDays = currentDay - userDay;
     setAgeDays(ageInDays);
   };
 
