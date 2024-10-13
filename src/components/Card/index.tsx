@@ -39,8 +39,8 @@ const Card = () => {
       year: Yup.number()
         .required('This Field is Required')
         .max(currentYear, 'Must be in the past'),
-    }).test('valid-date', 'Invalid date', function (values) {
-      const { day, month, year } = values;
+    }).test('valid-date', 'Invalid date', function (value) {
+      const { day, month, year } = value;
       if (day && month && year) {
         return isValidDate(day, month, year); // Validate the date combination
       }
@@ -173,29 +173,32 @@ const Card = () => {
             </div>
           </div>
 
-          <div className='flex justify-center max-w-[500px] sm:justify-end pt-5'>
+          <div className='  max-w-[500px]  p-5 mt-5 relative'>
+            <hr className='w-[100%] sm:w-[95%]  text-lightGrey' />
             <button
               type='submit'
-              className='bg-purple rounded-full w-14 h-14 p-2 flex justify-center items-center'
+              className='bg-purple rounded-full w-14 h-14 p-2 flex justify-center items-center absolute  left-1/2  top-1/2 transform -translate-x-1/2 -translate-y-1/2 sm:left-auto sm:right-0 '
             >
               <ArrowIcon />
             </button>
           </div>
         </form>
       </div>
-      <div className='  text-5xl sm:text-6xl font-extrabold pt-6 pb-6 sm:pt-0'>
-        <p>
-          <span className='text-purple mx-2'>{ageYears ? ageYears : '--'}</span>
+      <div className={` text-5xl sm:text-6xl font-extrabold pt-6 pb-6 sm:pt-0`}>
+        <p className='italic font-black'>
+          <span className='text-purple mx-1 '>
+            {ageYears ? ageYears : '- -'}
+          </span>
           years
         </p>
-        <p>
-          <span className='text-purple mx-2'>
-            {ageMonths ? ageMonths : '--'}
+        <p className='italic font-black'>
+          <span className='text-purple mx-1'>
+            {ageMonths ? ageMonths : '- -'}
           </span>
           months
         </p>
-        <p>
-          <span className='text-purple mx-2'>{ageDays ? ageDays : '--'}</span>
+        <p className='italic font-black'>
+          <span className='text-purple mx-1'>{ageDays ? ageDays : '- -'}</span>
           days
         </p>
       </div>
