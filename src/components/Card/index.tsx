@@ -17,10 +17,13 @@ const Card = () => {
   let currentYear = new Date().getFullYear();
 
   const isValidDate = (day: number, month: number, year: number) => {
-    const date = new Date(year, month - 1, day); // month is 0-indexed in JS
-    return date.getDate() === day && date.getMonth() === month - 1;
+    const date = new Date(year, month - 1, day);
+    return (
+      date.getFullYear() === year &&
+      date.getMonth() === month - 1 &&
+      date.getDate() === day
+    );
   };
-
   const formik = useFormik({
     initialValues: {
       day: '',
@@ -29,22 +32,23 @@ const Card = () => {
     },
     validationSchema: Yup.object({
       day: Yup.number()
-        .required('This Field is Required')
+        .required('Day is required')
         .min(1, 'Day must be at least 1')
-        .max(31, 'Day cannot be more than 31'),
+        .max(31, 'Day cannot be more than 31')
+        .test('validDay', 'Must be a valid date', function (value) {
+          const { year, month } = this.parent;
+          const lastDayOfMonth = new Date(+year, +month, 0).getDate();
+          return value <= lastDayOfMonth;
+        }),
       month: Yup.number()
         .required('This Field is Required')
+        .typeError('Please input a valid number')
         .min(1, 'Month must be at least 1')
         .max(12, 'Month cannot be more than 12'),
       year: Yup.number()
         .required('This Field is Required')
+        .typeError('Please input a valid number')
         .max(currentYear, 'Must be in the past'),
-    }).test('valid-date', 'Invalid date', function (value) {
-      const { day, month, year } = value;
-      if (day && month && year) {
-        return isValidDate(day, month, year); // Validate the date combination
-      }
-      return true; // If one of the fields is not filled out yet, skip the validation
     }),
     onSubmit: (values) => {
       getUserAge(values);
