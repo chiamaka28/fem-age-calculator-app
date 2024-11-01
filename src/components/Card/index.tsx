@@ -32,7 +32,8 @@ const Card = () => {
     },
     validationSchema: Yup.object({
       day: Yup.number()
-        .required('Day is required')
+        .required('This Field is Required')
+        .typeError('Please input a valid number')
         .min(1, 'Day must be at least 1')
         .max(31, 'Day cannot be more than 31')
         .test('validDay', 'Must be a valid date', function (value) {
