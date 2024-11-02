@@ -101,7 +101,7 @@ const Card = () => {
                 DAY
               </label>
               <input
-                type='text'
+                type='number'
                 id='day'
                 placeholder='DD'
                 className={`block border  h-12 w-full sm:w-32 rounded-lg placeholder:text-smokeyGrey text-2xl font-bold px-3 focus:outline-none ${
@@ -130,7 +130,7 @@ const Card = () => {
                 MONTH
               </label>
               <input
-                type='text'
+                type='number'
                 id='month'
                 placeholder='MM'
                 className={`block border  h-12 w-full sm:w-32 rounded-lg  placeholder:text-smokeyGrey text-2xl font-bold px-3 focus:outline-none ${
@@ -159,7 +159,7 @@ const Card = () => {
                 YEAR
               </label>
               <input
-                type='text'
+                type='number'
                 id='year'
                 placeholder='YY'
                 className={`block border  h-12 w-full sm:w-32 rounded-lg placeholder:text-smokeyGrey text-2xl font-bold px-3 focus:outline-none ${
