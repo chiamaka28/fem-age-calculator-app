@@ -10,7 +10,7 @@ interface IFormValues {
   year?: string;
 }
 
-const Card = () => {
+const AgeCalculator = () => {
   const [ageYears, setAgeYears] = useState<number | null>(null);
   const [ageMonths, setAgeMonths] = useState<number | null>(null);
   const [ageDays, setAgeDays] = useState<number | null>(null);
@@ -211,4 +211,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default AgeCalculator;
